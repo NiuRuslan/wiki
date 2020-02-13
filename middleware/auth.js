@@ -14,6 +14,7 @@ const sessionChecker = (req, res, next) => {
   }
 };
 
+// eslint-disable-next-line no-unused-vars
 const rolesChecker = (req, res, next) => {
 
 };
