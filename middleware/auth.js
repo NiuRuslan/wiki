@@ -20,5 +20,5 @@ const rolesChecker = (req, res, next) => {
 
 module.exports = {
   sessionChecker,
-  cookiesCleaner
+  cookiesCleaner,
 };
