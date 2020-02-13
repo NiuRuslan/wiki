@@ -1,10 +1,11 @@
 /* eslint-disable no-underscore-dangle */
 const mongoose = require('mongoose');
+require('dotenv').config();
 const User = require('./users');
 const Article = require('./articles');
 const Category = require('./categories');
 
-mongoose.connect('mongodb://localhost:27017/finam', {
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0-on3in.mongodb.net/test?retryWrites=true&w=majority`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
