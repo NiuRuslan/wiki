@@ -7,8 +7,9 @@ mongoose.connect('mongodb://localhost:27017/finam', {
 });
 
 const categoriesSchema = new mongoose.Schema({
+  article: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Article' }],
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   title: String,
-  // entries: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Entries' }],
 });
 
 

@@ -7,10 +7,11 @@ mongoose.connect('mongodb://localhost:27017/finam', {
 });
 
 const usersSchema = new mongoose.Schema({
+  article: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Article' }],
+  category: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Category' }],
   username: String,
   login: String,
   password: String,
-  // entries: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Entries' }],
   root: Boolean,
   superUser: Boolean,
 });
