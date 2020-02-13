@@ -1,5 +1,6 @@
 const createError = require('http-errors');
 const express = require('express');
+require('dotenv').config();
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -19,10 +20,10 @@ const fileStoreOptions = {};
 
 // Подключаем mongoose.
 
-mongoose.connect('mongodb://localhost:27017/wiki', {
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0-on3in.mongodb.net/test?retryWrites=true&w=majority`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-}); // uri maybe change
+});
 
 
 // view engine setup

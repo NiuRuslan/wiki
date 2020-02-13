@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 const express = require('express');
 
 const router = express.Router();
@@ -14,6 +15,7 @@ router.post('/', async (req, res, next) => {
     const { login, password } = req.body;
     const userCheck = await User.findOne({ login });
     if (userCheck.login === login && userCheck.password === password) {
+      alert('Вошел!');
       req.session.user = userCheck;
       res.redirect('/');
     } else {
@@ -37,5 +39,6 @@ router.get('/logout', async (req, res, next) => {
     }
   }
 });
+
 
 module.exports = router;
