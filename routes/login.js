@@ -15,7 +15,6 @@ router.post('/', async (req, res, next) => {
     const { login, password } = req.body;
     const userCheck = await User.findOne({ login });
     if (userCheck.login === login && userCheck.password === password) {
-      alert('Вошел!');
       req.session.user = userCheck;
       // eslint-disable-next-line no-unused-vars
       const { username } = userCheck;
