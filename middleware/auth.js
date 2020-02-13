@@ -1,5 +1,5 @@
 function cookiesCleaner(req, res, next) {
-  if (req.cookies.user_sid && !req.session.user) {
+  if (req.cookies.token && !req.session.user) {
     res.clearCookie('user_sid');
   }
   next();
@@ -12,6 +12,10 @@ const sessionChecker = (req, res, next) => {
   } else {
     next();
   }
+};
+
+const rolesChecker = (req, res, next) => {
+
 };
 
 module.exports = {

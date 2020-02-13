@@ -4,15 +4,16 @@ const router = express.Router();
 const User = require('../models/users');
 
 /* GET home page. */
-router.get('/login', (req, res, next) => {
+// eslint-disable-next-line no-unused-vars
+router.get('/', (req, res, next) => {
   res.render('login');
 });
 
-router.post('/login', async (req, res, next) => {
+router.post('/', async (req, res, next) => {
   try {
-    const { email, password } = req.body;
-    const userCheck = await User.findOne({ email });
-    if (userCheck.email === email && userCheck.password === password) {
+    const { login, password } = req.body;
+    const userCheck = await User.findOne({ login });
+    if (userCheck.login === login && userCheck.password === password) {
       req.session.user = userCheck;
       res.redirect('/');
     } else {
@@ -24,6 +25,7 @@ router.post('/login', async (req, res, next) => {
   }
 });
 
+// eslint-disable-next-line no-unused-vars
 router.get('/logout', async (req, res, next) => {
   if (req.session.user) {
     try {
