@@ -1,4 +1,5 @@
 const express = require('express');
+
 const router = express.Router();
 const User = require('../models/users');
 
@@ -14,26 +15,18 @@ router.post('/', async (req, res, next) => {
     const userCheck = await User.findOne({ login });
     if (userCheck.login === login && userCheck.password === password) {
       req.session.user = userCheck;
-      res.redirect('/');
+      // eslint-disable-next-line no-unused-vars
+      const { username } = userCheck;
+      console.log(username);
+      res.render('index', { username });
+      // res.redirect('/');
     } else {
+      // eslint-disable-next-line no-alert
       alert('wrong data');
       res.redirect('/');
     }
   } catch (error) {
     next(error);
-  }
-});
-
-// eslint-disable-next-line no-unused-vars
-router.get('/logout', async (req, res, next) => {
-  if (req.session.user) {
-    try {
-      await req.session.destroy();
-      res.clearCookie('token');
-      res.redirect('/');
-    } catch (err) {
-      res.redirect('/');
-    }
   }
 });
 
