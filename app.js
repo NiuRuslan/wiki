@@ -11,6 +11,8 @@ const hbs = require('hbs');
 const mongoose = require('mongoose');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const postsRouter = require('./routes/post');
+const loginRouter = require('./routes/login');
 
 const app = express();
 const fileStoreOptions = {};
@@ -74,6 +76,8 @@ app.use(methodOverride((req, res) => {
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/login', loginRouter);
+app.use('post', postsRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

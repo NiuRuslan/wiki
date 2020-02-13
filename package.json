@@ -8,19 +8,30 @@
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
     "express": "~4.16.1",
     "express-file-store": "^1.0.3",
     "express-session": "^1.17.0",
     "hbs": "^4.1.0",
     "http-errors": "~1.6.3",
-    "method-override": "^3.0.0",
     "mongoose": "^5.8.11",
-    "morgan": "~1.9.1",
-    "session-file-store": "^1.4.0"
+    "morgan": "~1.9.1"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.20.1"
-  }
+  },
+  "description": "hello",
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NiuRuslan/wiki.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NiuRuslan/wiki/issues"
+  },
+  "homepage": "https://github.com/NiuRuslan/wiki#readme"
 }
