@@ -1,10 +1,64 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    {{{body}}}
-  </body>
+
+<head>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="/stylesheets/materialize.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+  </script>
+
+</head>
+
+<body>
+<header>
+  <nav>
+{{#if isAuth}}
+    <div class="nav-wrapper">
+      <a href="/" class="brand-logo">Финам Вики</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/categories">Категории</a></li>
+        <li><a href="/add">Добавить</a></li>
+        <li><a href="/">{{username}}</a></li>
+        <li><a href="/logout">Выйти</a></li>
+      </ul>
+    </div>
+{{else}}
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo">Финам Вики</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/login">Войти</a></li>
+            </ul>
+        </div>
+{{/if}}
+  </nav>
+{{#if isAuth}}
+  <ul class="sidenav" id="mobile-demo">
+        <li><a href="/categories">Категории</a></li>
+        <li><a href="/add">Добавить</a></li>
+        <li><a href="/">{{username}}</a></li>
+        <li><a href="/logout">Выйти</a></li>
+  </ul>
+  {{else}}
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="/login">Войти</a></li>
+  </ul>
+  {{/if}}
+</header>
+
+  <main class="valign-wrapper">
+
+    <div class="container">
+      <!-- Page Content goes here -->
+      {{{body}}}
+    </div>
+  </main>
+
+  {{> footer}}
+
+</body>
+
 </html>
