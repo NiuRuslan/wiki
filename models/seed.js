@@ -68,22 +68,11 @@ async function addUser(inputUsername, inputLogin, inputPassword, checkSuperUser)
     login: inputLogin,
     password: inputPassword,
     superUser: checkSuperUser, // Boolean
-    // root: false,
-    // article: [article1._id],
-    // category: [category1._id],
   });
   await mongoose.disconnect();
   return addedUser;
 }
-addUser('ИмяCтатьи', 'контент');
-
-
-
-
-
-
-
-
+addUser('Иваов Иван Иванович', 'miniAdmin', 'password', true);
 
 // admin1.save();
 // user1.save();
