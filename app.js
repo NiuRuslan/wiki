@@ -27,10 +27,13 @@ const fileStoreOptions = {};
 async function mongoStart() {
   try {
     // console.log(process.env.DB_USER, process.env.DB_PASSWORD);
-    mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0-on3in.mongodb.net/test?retryWrites=true&w=majority`, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }); // uri maybe change
+    mongoose.connect(
+      `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0-on3in.mongodb.net/test?retryWrites=true&w=majority`,
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      },
+    ); // uri maybe change
   } catch (e) {
     // eslint-disable-next-line no-console
     console.log(e);
@@ -50,7 +53,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
 
 // session and check auth
 app.use(
@@ -77,17 +79,18 @@ app.use((req, res, next) => {
 
 // Allows you to use PUT, DELETE with forms.
 // eslint-disable-next-line consistent-return,no-unused-vars
-app.use(methodOverride((req, res) => {
-  if (req.body && typeof req.body === 'object' && '_method' in req.body) {
-    // look in urlencoded POST bodies and delete it
-    // eslint-disable-next-line no-underscore-dangle
-    const method = req.body._method;
-    // eslint-disable-next-line no-underscore-dangle
-    delete req.body._method;
-    return method;
-  }
-}));
-
+app.use(
+  methodOverride((req, res) => {
+    if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+      // look in urlencoded POST bodies and delete it
+      // eslint-disable-next-line no-underscore-dangle
+      const method = req.body._method;
+      // eslint-disable-next-line no-underscore-dangle
+      delete req.body._method;
+      return method;
+    }
+  }),
+);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -110,6 +113,5 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500);
   res.render('error');
 });
-
 
 module.exports = app;

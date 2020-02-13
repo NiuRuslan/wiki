@@ -19,8 +19,8 @@ router.post('/', async (req, res, next) => {
       // eslint-disable-next-line no-unused-vars
       const { username } = userCheck;
       console.log(username);
-      res.render('index', { username });
-      // res.redirect('/');
+      // res.render('index', { username });
+      res.redirect('/');
     } else {
       // eslint-disable-next-line no-alert
       alert('wrong data');
