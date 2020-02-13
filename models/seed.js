@@ -72,7 +72,10 @@ async function addUser(inputUsername, inputLogin, inputPassword, checkSuperUser)
   await mongoose.disconnect();
   return addedUser;
 }
-addUser('Иваов Иван Иванович', 'miniAdmin', 'password', true);
+addUser('Иванов Иван Иванович', 'miniAdmin', 'password', true);
+
+
+
 
 // admin1.save();
 // user1.save();

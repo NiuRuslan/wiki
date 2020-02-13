@@ -8,7 +8,6 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const hbs = require('hbs');
-require('dotenv').config();
 
 const mongoose = require('mongoose');
 const indexRouter = require('./routes/index');
