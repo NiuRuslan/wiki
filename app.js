@@ -6,9 +6,10 @@ const logger = require('morgan');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
+const hbs = require('hbs');
 
 const mongoose = require('mongoose');
-const indexRouter = require('./routes/login');
+const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
 const app = express();
@@ -24,7 +25,9 @@ mongoose.connect('mongodb://localhost:27017/wiki', {
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
+app.set('partials', path.join(__dirname, 'views/partials'));
 app.set('view engine', 'hbs');
+hbs.registerPartials(__dirname + '/views/partials');
 
 app.use(logger('dev'));
 app.use(express.json());
