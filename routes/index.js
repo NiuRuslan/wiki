@@ -1,17 +1,18 @@
 const express = require('express');
+const Category = require('../models/categories.js');
 
 const router = express.Router();
+// eslint-disable-next-line no-unused-vars
+const Article = require('../models/articles.js');
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   if (req.session.user) {
-    return res.render('index', {
-      title: 'Express',
+    await res.render('index', {
       username: req.session.user.username,
+
     });
   }
-  res.render('index', {
-    title: 'Express',
-  });
+  await res.render('login');
 });
 
 /* exit from session */
@@ -26,6 +27,24 @@ router.get('/logout', async (req, res) => {
     }
   }
 });
+
+
+router.get('/add', async (req, res) => {
+  const categories = await Category.find();
+  console.log(categories);
+  res.render('articles/new', { categories });
+});
+
+// router.post('/add', async (req, res) => {
+//   console.log(req.body);
+//   const post1 = await new Article({
+//     title: req.body.title,
+//     content: req.body.content,
+//   //   category: req.body.category.title,
+//   //   user: req.body.user.username,
+//   }).save();
+//   res.end();
+// });
 
 
 module.exports = router;
