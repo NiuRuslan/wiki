@@ -3,14 +3,15 @@ const router = require('express')
 const Article = require('../models/articles');
 const Category = require('../models/categories');
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   if (req.session.user) {
+    const categories = await Category.find();
     return res.render('articles/new', {
-      title: 'Финам Вики',
       username: req.session.user.username,
+      categories,
     });
   }
-  res.render('login')
+  res.render('login');
 });
 
 router.post('/', async (req, res) => {
@@ -22,6 +23,7 @@ router.post('/', async (req, res) => {
       category,
     });
     newPost.save();
+    res.redirect('/')
   } catch (e) {
     console.log(e);
   }
