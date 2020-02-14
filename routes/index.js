@@ -1,9 +1,9 @@
 const express = require('express');
+const Category = require('../models/categories.js');
 
 const router = express.Router();
 
-/* GET home page. */
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
   if (req.session.user) {
     return res.render('index', {
       title: 'Финам Вики',
@@ -14,7 +14,8 @@ router.get('/', (req, res, next) => {
   res.render('articles/new', {title: 'Финам Вики'});
 });
 
-router.get('/logout', async (req, res, next) => {
+/* exit from session */
+router.get('/logout', async (req, res) => {
   if (req.session.user) {
     try {
       await req.session.destroy();
@@ -25,6 +26,15 @@ router.get('/logout', async (req, res, next) => {
     }
   }
 });
+
+
+router.get('/add', async (req, res) => {
+  const categories = await Category.find();
+  console.log(categories);
+  res.render('articles/new', { categories });
+});
+
+
 
 
 module.exports = router;
