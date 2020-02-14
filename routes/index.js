@@ -5,14 +5,15 @@ const router = express.Router();
 // eslint-disable-next-line no-unused-vars
 const Article = require('../models/articles.js');
 
-router.get('/', async (req, res) => {
+router.get('/', (req, res) => {
   if (req.session.user) {
-    await res.render('index', {
+    return res.render('index', {
+      title: 'Финам Вики',
       username: req.session.user.username,
-
     });
   }
-  await res.render('login');
+  // res.render('articles/edit', {title: 'Финам Вики'});
+  res.render('index', { title: 'Финам Вики' });
 });
 
 /* exit from session */
@@ -35,16 +36,7 @@ router.get('/add', async (req, res) => {
   res.render('articles/new', { categories });
 });
 
-// router.post('/add', async (req, res) => {
-//   console.log(req.body);
-//   const post1 = await new Article({
-//     title: req.body.title,
-//     content: req.body.content,
-//   //   category: req.body.category.title,
-//   //   user: req.body.user.username,
-//   }).save();
-//   res.end();
-// });
+
 
 
 module.exports = router;
