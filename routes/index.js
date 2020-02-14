@@ -6,12 +6,12 @@ const User = require('../models/users');
 /* GET home page. */
 router.get('/', (req, res, next) => {
   if (req.session.user) {
-    return res.render('aricles/new', {
+    return res.render('index', {
       title: 'Express',
       username: req.session.user.username,
     });
   }
-  res.render('index');
+  res.render('login');
 });
 
 router.get('/logout', async (req, res, next) => {
