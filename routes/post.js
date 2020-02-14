@@ -23,11 +23,12 @@ router.post('/', async (req, res) => {
       category,
     });
     newPost.save();
-    res.redirect('/')
+    res.redirect('../');
   } catch (e) {
     console.log(e);
   }
 });
+
 
 
 module.exports = router;

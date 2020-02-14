@@ -2,7 +2,8 @@ const express = require('express');
 const Category = require('../models/categories.js');
 
 const router = express.Router();
-
+const Article = require('../models/articles');
+/* GET home page. */
 router.get('/', async (req, res) => {
   if (req.session.user) {
     const categories = await Category.find();
@@ -30,11 +31,18 @@ router.get('/logout', async (req, res) => {
   }
 });
 
-// router.get('/add', async (req, res) => {
-//   const categories = await Category.find();
-//   console.log(categories);
-//   res.render('articles/new', { categories });
-// });
+router.get('/articles/:id', async (req, res) => {
 
+  const categories = await Category.find();
+  const articles = await Article.find({ category: req.params.id });
+  res.render('articles/view', { categories, articles });
+});
+
+router.get('/article/:id', async (req, res) => {
+  const categories = await Category.find();
+  const article = await Article.findById(req.params.id);
+
+  return res.render('articles/article', { categories, article });
+});
 
 module.exports = router;

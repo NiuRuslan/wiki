@@ -1,28 +1,18 @@
 <div>
   <div class="row">
-    <div class="col s12 m8 l9">
-      <h3>Бычье поглощение на графике нефти - хороший сигнал</h3>
+        <div class="col s12 m8 l9">
+      <h3>{{article.title}}</h3>
       <div name="article">
-        <p>Итоги этой недели получаются достаточно интересными. Начинали с истерики по вирусу, излечению от него <br>
-          и снова вспомнили о нем – все волнительно, рынки метались. Но в целом ситуация достаточно положительная.<br>
-          Если рынок закроется на тех же отметках, что при открытии, то получится по нефти "бычье" поглощение <br>
-          в недельном масштабе. Это сигнал серьезный. Конечно, нет гарантии, что динамика полетит вверх,<br>
-          но это нормальное явление. Ниже не пошли – в зоне 53-54 отбились и пошли выше – это хорошо...</p>
-
-        <p>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/7iNqsN57fSk" frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </p>
+        {{{article.content}}}
       </div>
     </div>
-
+    
     <div class="col s12 m4 l3">
 
       <div class="collection" style="border: none;">
         <li class="collection-item" style="list-style-type: none;">Категории</li>
-        <a href="#!" class="collection-item">Подтянуть из базы</a> {{!--  а это удалить --}}
         {{#each categories}}
-        <a href="/articles/{{this.title}}" class="collection-item">{{this.title}}</a>
+        <a href="../articles/{{this._id}}" class="collection-item">{{this.title}}</a>
         {{/each}}
       </div>
     </div>

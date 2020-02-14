@@ -18,10 +18,9 @@
         <a href="/" class="brand-logo">Финам Вики</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="/categories">Категории</a></li>
-          <li><a href="/add">Добавить</a></li>
+          <li><a href="/add">добавить</a></li>
           <li><a href="/">profile{{username}}</a></li>
-          <li><a href="/logout">Выйти</a></li>
+          <li><a href="/logout">выйти</a></li>
         </ul>
       </div>
       {{else}}
@@ -29,21 +28,20 @@
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <a href="/" class="brand-logo">Финам Вики</a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="/login">Войти</a></li>
+          <li><a href="/login">войти</a></li>
         </ul>
       </div>
       {{/if}}
     </nav>
     {{#if isAuth}}
     <ul class="sidenav" id="mobile-demo">
-      <li><a href="/categories">Категории</a></li>
-      <li><a href="/add">Добавить</a></li>
+      <li><a href="/add">добавить</a></li>
       <li><a href="/">{{username}}</a></li>
-      <li><a href="/logout">Выйти</a></li>
+      <li><a href="/logout">выйти</a></li>
     </ul>
     {{else}}
     <ul class="sidenav" id="mobile-demo">
-      <li><a href="/login">Войти</a></li>
+      <li><a href="/login">войти</a></li>
     </ul>
     {{/if}}
   </header>

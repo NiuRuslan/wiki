@@ -3,18 +3,18 @@
     <h3>Выберите статью</h3>
 
     <div class="collection " style="border: none;">
-      <h5><a href="#!" class="collection-item">Подтянуть из базы статьи</a></h5>
-      <h5><a href="#!" class="collection-item">Правила пожарной безопасности</a></h5>
-      <h5><a href="#!" class="collection-item">Должностная инструкция</a></h5>
+      {{#each articles}}
+        <h5><a href='/article/{{this._id}}' class="collection-item">{{this.title}}</a></h5>
+      {{/each}}
     </div>
   </div>
 
-  {{!-- <div class="col s12 m4 l3">
+  <div class="col s12 m4 l3">
 
     <div class="collection" style="border: none;">
       <li class="collection-item" style="list-style-type: none;">Категории</li>
       {{#each categories}}
-      <a href=`/articles/{{this.title}}` class="collection-item">{{this.title}}</a>
+      <a href='/articles/{{this._id}}' class="collection-item">{{this.title}}</a>
       {{/each}}
     </div>
-  </div> --}}
+  </div>

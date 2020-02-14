@@ -10,4 +10,5 @@ document.querySelector('.container').addEventListener('submit', async (event) =>
     category,
     content,
   });
+  window.location.href="/"
 });
