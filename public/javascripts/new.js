@@ -10,5 +10,10 @@ document.querySelector('.container').addEventListener('submit', async (event) =>
     category,
     content,
   });
-  window.location.href="/"
+  window.location.href = '/';
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(elems, options);
 });
