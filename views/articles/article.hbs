@@ -1,0 +1,27 @@
+<div>
+  <div class="row">
+        <div class="col s12 m8 l9">
+      <h3>{{article.title}}</h3>
+      <div name="article">
+        {{{article.content}}}
+      </div>
+    </div>
+    
+    <div class="col s12 m4 l3">
+
+      <div class="collection" style="border: none;">
+        <li class="collection-item" style="list-style-type: none;">Категории</li>
+        {{#each categories}}
+        <a href="../articles/{{this._id}}" class="collection-item">{{this.title}}</a>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s2 offset-s5"> <a class="waves-effect waves-light btn grey lighten-1"><i
+          class="material-icons left">edit</i>изменить</a>
+    </div>
+    <div class="col s2"> <a class="waves-effect waves-light btn grey lighten-1 "><i
+          class="material-icons left">delete</i>удалить&nbsp;</a>
+    </div>
+  </div>

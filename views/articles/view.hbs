@@ -1,5 +1,20 @@
-  <div class="section">
-    <h3>Заголовок</h3>
-      <div class="divider"></div>
-    <p>Содержимое</p>
+<div class="row">
+  <div class="col s12 m8 l9">
+    <h3>Выберите статью</h3>
+
+    <div class="collection " style="border: none;">
+      {{#each articles}}
+        <h5><a href='/article/{{this._id}}' class="collection-item">{{this.title}}</a></h5>
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="col s12 m4 l3">
+
+    <div class="collection" style="border: none;">
+      <li class="collection-item" style="list-style-type: none;">Категории</li>
+      {{#each categories}}
+      <a href='/articles/{{this._id}}' class="collection-item">{{this.title}}</a>
+      {{/each}}
+    </div>
   </div>

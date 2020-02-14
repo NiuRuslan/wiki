@@ -2,9 +2,9 @@
 const mongoose = require('mongoose');
 
 const categoriesSchema = new mongoose.Schema({
-  article: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Article' }],
-  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   title: String,
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  article: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Article' }],
 });
 
 
