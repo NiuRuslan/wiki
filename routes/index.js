@@ -1,7 +1,6 @@
 const express = require('express');
 
 const router = express.Router();
-const User = require('../models/users');
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
@@ -12,7 +11,7 @@ router.get('/', (req, res, next) => {
     });
   }
   // res.render('articles/edit', {title: 'Финам Вики'});
-  res.render('index', {title: 'Финам Вики'});
+  res.render('articles/new', {title: 'Финам Вики'});
 });
 
 router.get('/logout', async (req, res, next) => {

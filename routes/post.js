@@ -1,6 +1,11 @@
-const express = require('express');
+const router = require('express').Router();
+const Article = require('../models/articles');
 
-const router = express.Router();
+router.post('/new', (req, res) => {
+  const { title, category, content } = req.body;
+  console.log(title, category, content);
+  res.json('Hello!');
+});
 
 
 module.exports = router;
