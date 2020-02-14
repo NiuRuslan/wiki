@@ -33,8 +33,7 @@ router.get('/logout', async (req, res, next) => {
 
 router.get('/articles/:id', async (req, res) => {
   const categories = await Category.find();
-  const categoriesArt = await Category.findById(req.params.id).populate('article');
-  const articles = categoriesArt.article;
+  const articles = await Article.find({category: req.params.id})
   res.render('articles/view', { categories, articles });
 });
 module.exports = router;
