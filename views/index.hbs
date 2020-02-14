@@ -23,6 +23,7 @@
   <div class="col s12 m4 l3">
     <div class="collection" style="border: none;">
       <li class="collection-item" style="list-style-type: none;">Категории</li>
+      <a href="#!" class="collection-item">Подтянуть из базы</a> {{!--  а это удалить --}}
       {{#each categories}}
         <a href="article/{{this._id}}" class="collection-item">{{this.title}}</a>
       {{/each}}

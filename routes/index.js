@@ -1,5 +1,5 @@
 const express = require('express');
-
+const Category = require('../models/categories.js');
 
 const router = express.Router();
 // const User = require('../models/users');
@@ -8,18 +8,17 @@ const Article = require('../models/articles');
 /* GET home page. */
 router.get('/', async (req, res) => {
   if (req.session.user) {
-    const categories = await Category.find();
     return res.render('index', {
       title: 'Финам Вики',
       username: req.session.user.username,
-      categories,
     });
   }
-  res.render('login');
+  // res.render('articles/edit', {title: 'Финам Вики'});
+  res.render('login', {title: 'Финам Вики'});
 });
 
-
-router.get('/logout', async (req, res, next) => {
+/* exit from session */
+router.get('/logout', async (req, res) => {
   if (req.session.user) {
     try {
       await req.session.destroy();
