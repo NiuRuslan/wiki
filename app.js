@@ -20,11 +20,6 @@ const app = express();
 const fileStoreOptions = {};
 
 // Подключаем mongoose.
-
-// mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0-on3in.mongodb.net/test?retryWrites=true&w=majority`, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
 async function mongoStart() {
   try {
     // console.log(process.env.DB_USER, process.env.DB_PASSWORD);
@@ -68,14 +63,12 @@ app.use(
 );
 
 app.use((req, res, next) => {
-  // eslint-disable-next-line no-console
   app.locals.isAuth = !!req.session.user;
   if (req.session.user) {
     app.locals.name = req.session.user.login;
   }
   next();
 });
-
 
 
 // Allows you to use PUT, DELETE with forms.
@@ -103,8 +96,7 @@ app.use((req, res, next) => {
 });
 
 // error handler
-// eslint-disable-next-line no-unused-vars
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
