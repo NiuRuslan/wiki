@@ -86,7 +86,7 @@ app.use(methodOverride((req, res) => {
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
-app.use('/post', postsRouter);
+app.use('/add', postsRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
