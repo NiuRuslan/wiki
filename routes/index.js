@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
     });
   }
   // res.render('articles/edit', {title: 'Финам Вики'});
-  res.render('articles/new', {title: 'Финам Вики'});
+  res.render('login', {title: 'Финам Вики'});
 });
 
 /* exit from session */
@@ -27,14 +27,11 @@ router.get('/logout', async (req, res) => {
   }
 });
 
-
-router.get('/add', async (req, res) => {
-  const categories = await Category.find();
-  console.log(categories);
-  res.render('articles/new', { categories });
-});
-
-
+// router.get('/add', async (req, res) => {
+//   const categories = await Category.find();
+//   console.log(categories);
+//   res.render('articles/new', { categories });
+// });
 
 
 module.exports = router;

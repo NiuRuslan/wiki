@@ -3,21 +3,28 @@ const router = require('express')
 const Article = require('../models/articles');
 const Category = require('../models/categories');
 
+router.get('/', (req, res) => {
+  if (req.session.user) {
+    return res.render('articles/new', {
+      title: 'Финам Вики',
+      username: req.session.user.username,
+    });
+  }
+  res.render('login')
+});
+
 router.post('/', async (req, res) => {
   try {
     const { title, category, content } = req.body;
-    console.log('CATEGORY', category);
-    const correctCategory = await Category.findById(category);
     const newPost = await new Article({
       title,
       content,
-      category
+      category,
     });
     newPost.save();
   } catch (e) {
     console.log(e);
   }
-  res.end();
 });
 
 
