@@ -6,8 +6,9 @@
   <link rel="stylesheet" href="/stylesheets/materialize.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script defer src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+  <link rel="shortcut icon" href="//www.finam.ru/favicon.ico" type="image/x-icon">
+  <script defer type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
 </head>
 
 <body>
@@ -16,8 +17,8 @@
       {{#if isAuth}}
       <div class="nav-wrapper">
         <a href="/" class="brand-logo">Финам Вики</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
+        {{!-- <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a> --}}
+        <ul class="right">
           <li><a href="/add">добавить</a></li>
           <li><a href="/addUser">{{username}}</a></li>
           <li><a href="/logout">выйти</a></li>
@@ -26,15 +27,15 @@
 
       {{else}}
       <div class="nav-wrapper">
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        {{!-- <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a> --}}
         <a href="/" class="brand-logo">Финам Вики</a>
-        <ul class="right hide-on-med-and-down">
+        <ul class="right">
           <li><a href="/login">войти</a></li>
         </ul>
       </div>
       {{/if}}
     </nav>
-    {{#if isAuth}}
+    {{!-- {{#if isAuth}}
     <ul class="sidenav" id="mobile-demo">
       <li><a href="/add">добавить</a></li>
       <li><a href="/addUser">{{username}}</a></li>
@@ -44,7 +45,7 @@
     <ul class="sidenav" id="mobile-demo">
       <li><a href="/login">войти</a></li>
     </ul>
-    {{/if}}
+    {{/if}} --}}
   </header>
 
   <main class="valign-wrapper">
@@ -58,5 +59,4 @@
   {{> footer}}
 
 </body>
-<script>$(".dropdown-trigger").dropdown();</script>
 </html>
