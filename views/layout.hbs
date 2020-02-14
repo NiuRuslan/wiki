@@ -19,10 +19,11 @@
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="/add">добавить</a></li>
-          <li><a href="/">profile{{username}}</a></li>
+          <li><a href="/addUser">{{username}}</a></li>
           <li><a href="/logout">выйти</a></li>
         </ul>
       </div>
+
       {{else}}
       <div class="nav-wrapper">
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -36,7 +37,7 @@
     {{#if isAuth}}
     <ul class="sidenav" id="mobile-demo">
       <li><a href="/add">добавить</a></li>
-      <li><a href="/">{{username}}</a></li>
+      <li><a href="/addUser">{{username}}</a></li>
       <li><a href="/logout">выйти</a></li>
     </ul>
     {{else}}
@@ -57,5 +58,5 @@
   {{> footer}}
 
 </body>
-
+<script>$(".dropdown-trigger").dropdown();</script>
 </html>
