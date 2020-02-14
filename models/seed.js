@@ -44,14 +44,14 @@ const Category = require('./categories');
 //   article: [article1._id],
 // });
 
-
+// добавление категории
 async function addCategory(inputCat) {
   const addedCategory = await Category.create({ title: inputCat });
   await mongoose.disconnect();
   return addedCategory;
 }
-addCategory('ИмяКатегории');
-
+addCategory('Мобильая разработка');
+// добавление статьи
 async function addArticle(inputArtTitle, inputArtContent) {
   const addedArticle = await Article.create({
     title: inputArtTitle,
@@ -60,8 +60,8 @@ async function addArticle(inputArtTitle, inputArtContent) {
   await mongoose.disconnect();
   return addedArticle;
 }
-addArticle('ИмяCтатьи', 'контент');
-
+addArticle('Express', 'Node.js представляет среду выполнения кода на JavaScript, которая построена на основе движка JavaScript Chrome V8, который позволяет транслировать вызовы на языке JavaScript в машинный код. Node.js прежде всего предназначен для создания серверных приложений на языке JavaScript. Хотя также существуют проекты по написанию десктопных приложений (Electron) и даже по созданию кода для микроконтроллеров. Но прежде всего мы говорим о Node.js, как о платформе для создания веб-приложений.');
+// Добавление юзера
 async function addUser(inputUsername, inputLogin, inputPassword, checkSuperUser) {
   const addedUser = await User.create({
     username: inputUsername,
@@ -72,9 +72,15 @@ async function addUser(inputUsername, inputLogin, inputPassword, checkSuperUser)
   await mongoose.disconnect();
   return addedUser;
 }
-addUser('Иванов Иван Иванович', 'miniAdmin', 'password', true);
+addUser('Михайлов Михаил Михайлович', 'alex', 'alex', false);
 
 
+// Удаление статьи
+async function remove(searchArticle) {
+  await Article.remove({task: taskSearch}, (err,member)=>
+  err ? console.log(err) : console.log(member))
+  await mongoose.disconnect();
+}
 // admin1.save();
 // user1.save();
 // category1.save();

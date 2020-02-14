@@ -2,11 +2,11 @@
 const mongoose = require('mongoose');
 
 const articlesSchema = new mongoose.Schema({
-  user1: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-  category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' },
   title: String,
   content: String,
   username: String,
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' },
   createdAt: {
     type: Date,
     default: Date.now,
