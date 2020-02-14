@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router();
 // const User = require('../models/users');
 const Category = require('../models/categories');
-const Article = require('../models/articles')
+const Article = require('../models/articles');
 /* GET home page. */
 router.get('/', async (req, res) => {
   if (req.session.user) {
@@ -31,12 +31,10 @@ router.get('/logout', async (req, res, next) => {
   }
 });
 
-// router.get('/articles', async (req, res) => {
-//   const articles = await Article.find();
-//   console.log(articles);
-//   res.render('view', { articles });
-// });
-
-
-
+router.get('/articles/:id', async (req, res) => {
+  const categories = await Category.find();
+  const categoriesArt = await Category.findById(req.params.id).populate('article');
+  const articles = categoriesArt.article;
+  res.render('articles/view', { categories, articles });
+});
 module.exports = router;
