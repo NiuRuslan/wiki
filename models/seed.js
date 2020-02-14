@@ -75,8 +75,6 @@ async function addUser(inputUsername, inputLogin, inputPassword, checkSuperUser)
 addUser('Иванов Иван Иванович', 'miniAdmin', 'password', true);
 
 
-
-
 // admin1.save();
 // user1.save();
 // category1.save();
