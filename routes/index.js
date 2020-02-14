@@ -7,11 +7,11 @@ const User = require('../models/users');
 router.get('/', (req, res, next) => {
   if (req.session.user) {
     return res.render('index', {
-      title: 'Express',
+      title: 'Финам Вики',
       username: req.session.user.username,
     });
   }
-  res.render('login');
+  res.render('articles/view');
 });
 
 router.get('/logout', async (req, res, next) => {

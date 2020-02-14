@@ -1,20 +1,22 @@
-  <div class="section">
-    <h3>Заголовок</h3>
-      <div class="divider"></div>
-    <p>Содержимое</p>
+<div class="row">
+  <div class="col s12 m8 l9">
+    <h3>Выберите статью</h3>
+
+    <div class="collection " style="border: none;">
+      <h5><a href="#!" class="collection-item">Подтянуть из базы статьи</a></h5>
+      <h5><a href="#!" class="collection-item">Правила пожарной безопасности</a></h5>
+      <h5><a href="#!" class="collection-item">Должностная инструкция</a></h5>
+    </div>
   </div>
-  <div class="section">
-    <h3>Заголовок</h3>
-      <div class="divider"></div>
-    <p>Содержимое</p>
-  </div>
-    <div class="section">
-    <h3>Заголовок</h3>
-      <div class="divider"></div>
-    <p>Содержимое</p>
-  </div>
-    <div class="section">
-    <h3>Заголовок</h3>
-      <div class="divider"></div>
-    <p>Содержимое</p>
+
+  <div class="col s12 m4 l3">
+
+    <div class="collection" style="border: none;">
+      <li class="collection-item" style="list-style-type: none;">Категории</li>
+      <a href="#!" class="collection-item">Подтянуть из базы</a> {{!--  а это удалить --}}
+      {{#each categories}}
+      <a href=`/articles/{{this.title}}` class="collection-item">{{this.title}}</a>
+      {{/each}}
+
+    </div>
   </div>
