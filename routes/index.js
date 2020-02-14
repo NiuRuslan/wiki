@@ -3,11 +3,14 @@ const Category = require('../models/categories.js');
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   if (req.session.user) {
+    const categories = await Category.find();
+//   console.log(categories);
     return res.render('index', {
       title: 'Финам Вики',
       username: req.session.user.username,
+      categories
     });
   }
   // res.render('articles/edit', {title: 'Финам Вики'});
