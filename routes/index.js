@@ -11,7 +11,7 @@ router.get('/', (req, res, next) => {
       username: req.session.user.username,
     });
   }
-  res.render('articles/view');
+  res.render('index', {title: 'Финам Вики'});
 });
 
 router.get('/logout', async (req, res, next) => {
