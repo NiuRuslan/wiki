@@ -32,7 +32,7 @@ router.get('/logout', async (req, res) => {
 });
 
 router.get('/addUser', async (req, res) => {
-  if (req.session.user) {
+  if (req.session.user && req.session.user.root) {
     const categories = await Category.find();
     const articles = await Article.find({ category: req.params.id });
     return res.render('addUser', { categories, articles, username: req.session.user.username });

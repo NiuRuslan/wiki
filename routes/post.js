@@ -4,7 +4,7 @@ const Article = require('../models/articles');
 const Category = require('../models/categories');
 
 router.get('/', async (req, res) => {
-  if (req.session.user) {
+  if (req.session.user && req.session.user.superUser) {
     const categories = await Category.find();
     return res.render('articles/new', {
       username: req.session.user.username,
@@ -28,7 +28,5 @@ router.post('/', async (req, res) => {
     console.log(e);
   }
 });
-
-
 
 module.exports = router;
