@@ -3,9 +3,6 @@
     <h3>Выберите статью</h3>
 
     <div class="collection " style="border: none;">
-      <h5><a href="#!" class="collection-item">Подтянуть из базы статьи</a></h5>
-      <h5><a href="#!" class="collection-item">Правила пожарной безопасности</a></h5>
-      <h5><a href="#!" class="collection-item">Должностная инструкция</a></h5>
       {{#each articles}}
         <h5><a href='/article/{{this._id}}' class="collection-item">{{this.title}}</a></h5>
       {{/each}}

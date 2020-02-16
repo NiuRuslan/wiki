@@ -10,40 +10,6 @@ const Category = require('./categories');
 //   useUnifiedTopology: true,
 // });
 
-
-// добавление статьи
-// const article1 = new Article({
-//   title: 'Chto-to',
-//   content: 'qweqwelkflkdjfsjf',
-// });
-
-// добавление категории
-// const category1 = new Category({
-//   title: 'qweqweqwe',
-//   article: [article1._id],
-// });
-
-// Добавление юзера
-// const user1 = new User({
-//   username: 'user',
-//   login: 'userLog',
-//   password: '123',
-//   superUser: false,
-//   root: false,
-//   article: [article1._id],
-// });
-
-// Добавление админа
-// const admin1 = new User({
-//   username: 'Admin',
-//   login: 'adminLog',
-//   password: '123',
-//   superUser: true,
-//   root: false,
-//   category: [category1._id],
-//   article: [article1._id],
-// });
-
 // добавление категории
 async function addCategory(inputCat) {
   const addedCategory = await Category.create({ title: inputCat });
@@ -73,15 +39,3 @@ async function addUser(inputUsername, inputLogin, inputPassword, checkSuperUser)
   return addedUser;
 }
 addUser('Михайлов Михаил Михайлович', 'alex', 'alex', false);
-
-
-// Удаление статьи
-async function remove(searchArticle) {
-  await Article.remove({task: taskSearch}, (err,member)=>
-  err ? console.log(err) : console.log(member))
-  await mongoose.disconnect();
-}
-// admin1.save();
-// user1.save();
-// category1.save();
-// article1.save();
