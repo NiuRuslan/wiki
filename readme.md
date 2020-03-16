@@ -1,5 +1,5 @@
 # Wiki
-Main idea of the project The main idea of the project is to make a wiki for internal use by organizations. </br>
+The main idea of the project is to make a wiki for internal use by organizations. </br>
 Make it possible to create entries in specific threads  </br>
 # Technologies:
   Handlebars </br>
