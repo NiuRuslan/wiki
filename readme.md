@@ -7,8 +7,8 @@ Make it possible to create entries in specific threads  </br>
   MongoDB </br>
 # Getting Started:
 ```
-   cd back && npm i || yarn && npm run dev || yarn run dev </br>
-   cd ../front && npm i || yarn && npm start || yarn start </br>
+   npm run dev || npm start 
+
 ```
 # MVP Functionality
   Login / Register </br>
